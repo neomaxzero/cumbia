@@ -11,7 +11,8 @@
     "dev:example": "parcel example/counter/index.html",
     "build": "parcel build ./example/counter",
     "build:lib": "node scripts/esbuild.js",
-    "check:typescript": "tsc"
+    "check:typescript": "tsc",
+    "check:size": "bundlesize"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/neomaxzero/cumbia#readme",
   "devDependencies": {
+    "bundlesize": "^0.18.1",
     "esbuild": "^0.12.8",
     "parcel-bundler": "^1.12.5",
     "typescript": "^4.3.2",

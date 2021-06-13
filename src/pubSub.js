@@ -12,7 +12,7 @@ export const publish = (topic, message) => {
     if (fn) {
       fn(message);
     } else {
-      console.warn('Topic not found');
+      console.warn('Topic not found.');
     }
   });
 };
