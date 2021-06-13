@@ -1,75 +1,37 @@
+import parseActions from './actionParser/data-action';
+import parseKey from './actionParser/data-key';
 import message from './utils/message';
 
-type ActionArgs = {
+export type ActionArgs = {
   [key: string]: any | HTMLElement;
 };
 
-type ComponentActions = {
+export type ComponentActions = {
   [key: string]: (t: ActionArgs) => void;
 };
 
-interface Component {
-  name: string;
+export interface ComponentInstance {
   actions: ComponentActions;
 }
 
-type ComponentFactory = ({ el: HTMLElement }) => Component;
-
-export const componentFactory = new Map<string, ComponentFactory>();
-
-const dataComponentAttr = 'data-component';
-
-type actionableObject = {
+export type actionableObject = {
   el: HTMLElement;
   value: string;
 };
 
-type BindedValues = {
+export type BindedValues = {
   [key: string]: actionableObject;
 };
 
-const parseValues = (element: HTMLElement): BindedValues => {
-  const dataValueAttr = 'data-value';
-  const bindedValues: BindedValues = {};
-
-  const values = element.querySelectorAll(`[${dataValueAttr}]`);
-
-  values.forEach((valueElement: HTMLElement) => {
-    const nameDefined =
-      valueElement.getAttribute(dataValueAttr) || 'default_name';
-    const value = valueElement.innerHTML;
-    //TODO: Can we get a boolean or a integer from the value property of an element?
-
-    bindedValues[nameDefined] = { el: valueElement, value };
-  });
-
-  return bindedValues;
+export type Component = {
+  el: HTMLElement;
 };
 
-const parseActions = (element: HTMLElement, fnActions: ComponentActions) => {
-  const dataActionAttr = 'data-action';
-  const bindedAction: BindedValues = {};
+export type ComponentFactory = (component: Component) => ComponentInstance;
 
-  const actions = element.querySelectorAll(`[${dataActionAttr}]`);
+export const componentFactory = new Map<string, ComponentFactory>();
 
-  actions.forEach((actionElement: HTMLElement) => {
-    const actionName =
-      actionElement.getAttribute(dataActionAttr) || 'default_action_name';
-
-    actionElement.addEventListener('click', () => {
-      const fnTobind = fnActions[actionName];
-
-      if (!fnTobind) {
-        return message.warn(
-          `Action -->"${actionName}"<-- not defined in component.`,
-        );
-      }
-
-      const values: BindedValues = parseValues(element);
-      fnTobind(values);
-    });
-  });
-};
+const dataComponentAttr = 'data-component';
 
 const createApp = () => {
   const htmlComponents = document.querySelectorAll(`[${dataComponentAttr}]`);
@@ -83,20 +45,16 @@ const createApp = () => {
 
     const fnComponent = componentFactory.get(name);
 
-    console.log(fnComponent);
-
     if (!fnComponent) {
       return message.error('Undefined component');
     }
 
     const instanceComponent = fnComponent({ el: element });
 
-    console.log(instanceComponent);
     if (instanceComponent?.actions) {
       parseActions(element, instanceComponent.actions);
+      parseKey(element, instanceComponent.actions);
     }
-
-    // fnAction(element);
   });
 };
 

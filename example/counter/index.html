@@ -8,10 +8,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.min.css"
     />
-    <title>Counter</title>
+    <title>Examples</title>
   </head>
   <body>
-    <h1>Counter</h1>
+    <h1>Examples</h1>
     <div data-component="counter">
       <h2>Value: <span data-value="count">0</span></h2>
       <button data-action="plus">+</button>
@@ -32,10 +32,10 @@
       <button data-action="plus">+</button>
       <button data-action="minus">-</button>
     </div>
-    <form data-component="form">
+    <form data-component="form" action="/test.html">
       <label for="name"></label>
-      <input data-value="name" name="name" placeholder="Insert name"></input>
-      <button>Submit</button>
+      <input data-value="name" data-action-key="updateResult" name="name" placeholder="Insert name"></input>
+      <button data-action="submit" type="submit">Submit</button>
       <p data-value="result">
 
       </p>
