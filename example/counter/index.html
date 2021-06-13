@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/light.min.css"
+    />
+    <title>Counter</title>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <div data-component="counter">
+      <h2>Value: <span data-value="count">0</span></h2>
+      <button data-action="plus">+</button>
+      <button data-action="minus">-</button>
+    </div>
+    <div data-component="counter">
+      <h2>Value: <span data-value="count">4</span></h2>
+      <a href="#" data-action="plus">+</a>
+      <a href="#" data-action="minus">-</a>
+    </div>
+    <div data-component="counter">
+      <h2>Value: <span data-value="count">3</span></h2>
+      <button data-action="plus">+</button>
+      <button data-action="minus">-</button>
+    </div>
+    <div data-component="counter">
+      <h2>Value: <span data-value="count">5</span></h2>
+      <button data-action="plus">+</button>
+      <button data-action="minus">-</button>
+    </div>
+    <form data-component="form">
+      <label for="name"></label>
+      <input data-value="name" name="name" placeholder="Insert name"></input>
+      <button>Submit</button>
+      <p data-value="result">
+
+      </p>
+    </form>
+
+    <script src="index.js"></script>
+  </body>
+</html>

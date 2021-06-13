@@ -1,0 +1,33 @@
+{
+  "name": "cumbia",
+  "version": "1.0.0",
+  "description": "Cumbia aims to give you a thin layer between your HTML and JS. An opinionated way of creating components and craft a web page.",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "dev:lib": "node scripts/esbuild.js --dev",
+    "dev:example": "parcel example/counter/index.html",
+    "build": "parcel build ./example/counter",
+    "build:lib": "node scripts/esbuild.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neomaxzero/cumbia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neomaxzero/cumbia/issues"
+  },
+  "homepage": "https://github.com/neomaxzero/cumbia#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "yargs": "^17.0.1"
+  },
+  "dependencies": {
+    "esbuild": "^0.12.8"
+  }
+}
