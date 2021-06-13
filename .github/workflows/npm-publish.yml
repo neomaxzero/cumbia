@@ -22,8 +22,8 @@ jobs:
             */*/node_modules
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install
-      - run: yarn check:size
       - run: yarn build:lib
+      - run: yarn check:size
 
   publish-npm:
     needs: build
