@@ -1,18 +1,1 @@
-(() => {
-  // src/index.js
-  var componentFactory = new Map();
-  var dataComponentAttr = "data-component";
-  var createApp = () => {
-    const htmlComponents = document.querySelectorAll(`[${dataComponentAttr}]`);
-    htmlComponents.forEach((element) => {
-      const name = element.getAttribute(dataComponentAttr);
-      if (!componentFactory.has(name)) {
-        return console.warn("Component", name, " not found.");
-      }
-      const fn = componentFactory.get(name);
-      fn(element);
-    });
-  };
-  var src_default = createApp;
-})();
-//# sourceMappingURL=cumbia.js.map
+var l="\u{1F3BC} Cumbia:",y=e=>console.error(`${l} ${e}`),A=e=>console.warn(`${l} ${e}`),a={error:y,warn:A};var g=e=>{let t="data-value",o={};return e.querySelectorAll(`[${t}]`).forEach(n=>{let r=n.getAttribute(t)||"default_name",c=n.innerHTML;n.tagName==="INPUT"&&(c=n.value),o[r]={el:n,value:c}}),o},m=g;var C=(e,t,o,{prevent:s})=>n=>{let r=t[o];if(s&&n.preventDefault(),!r)return a.warn(`Action -->"${o}"<-- not defined in component.`);let c=m(e);r(c)},i=C;var v=(e,t)=>{let o="data-action";e.querySelectorAll(`[${o}]`).forEach(n=>{let r=n.getAttribute(o)||"default_action_name";if(r==="submit"){if(e.tagName!=="FORM")return a.error("Trying to handle submit handler outside of form");e.addEventListener("submit",i(e,t,r,{prevent:!0}));return}if(n.tagName==="INPUT"){n.addEventListener("change",i(e,t,r,{prevent:!1}));return}n.addEventListener("click",i(e,t,r,{prevent:!1}))})},u=v;var L=(e,t)=>{let o="data-action-key";e.querySelectorAll(`[${o}]`).forEach(n=>{let r=n.getAttribute(o)||"default_action_name";n.addEventListener("keyup",i(e,t,r,{prevent:!1}))})},d=L;var p=new Map,f="data-component",T=()=>{document.querySelectorAll(`[${f}]`).forEach(t=>{let o=t.getAttribute(f)||"";if(!p.has(o))return a.warn(`Component -->"${o}"<-- not found.`);let s=p.get(o);if(!s)return a.error("Undefined component");let n=s({el:t});n?.actions&&(u(t,n.actions),d(t,n.actions))})},x=e=>{e.forEach(t=>{if(!t.name)return a.error("Component name not defined, please give a name to your component");p.has(t.name)&&a.warn(`Name collision detected. ${t.name} was previously defined`),p.set(t.name,t)}),T()},P=x;export{p as componentFactory,P as default};

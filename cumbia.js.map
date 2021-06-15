@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/index.js"],
-  "sourcesContent": ["export const componentFactory = new Map();\n\nconst dataComponentAttr = 'data-component';\n\nconst createApp = () => {\n  const htmlComponents = document.querySelectorAll(`[${dataComponentAttr}]`);\n\n  htmlComponents.forEach((element) => {\n    const name = element.getAttribute(dataComponentAttr);\n\n    if (!componentFactory.has(name)) {\n      return console.warn('Component', name, ' not found.');\n    }\n\n    const fn = componentFactory.get(name);\n\n    fn(element);\n  });\n};\n\nexport default createApp;\n"],
-  "mappings": ";;AAAO,MAAM,mBAAmB,IAAI;AAEpC,MAAM,oBAAoB;AAE1B,MAAM,YAAY,MAAM;AACtB,UAAM,iBAAiB,SAAS,iBAAiB,IAAI;AAErD,mBAAe,QAAQ,CAAC,YAAY;AAClC,YAAM,OAAO,QAAQ,aAAa;AAElC,UAAI,CAAC,iBAAiB,IAAI,OAAO;AAC/B,eAAO,QAAQ,KAAK,aAAa,MAAM;AAAA;AAGzC,YAAM,KAAK,iBAAiB,IAAI;AAEhC,SAAG;AAAA;AAAA;AAIP,MAAO,cAAQ;",
-  "names": []
-}
