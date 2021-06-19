@@ -47,6 +47,10 @@ const counter = ({ el }) => {
 cumbia([counter]);
 ```
 
+## Try it out yourself
+
+[![Edit cumbia-example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/cumbia-example-501gu?fontsize=14&hidenavigation=1&theme=dark)
+
 ## Core values
 
 - Facilitate progressive-enhancement.
