@@ -26,7 +26,7 @@ const callFnWithValues =
       );
     }
 
-    const values: BindedValues = parseValues(element);
+    const values = parseValues(element);
 
     fnTobind(values);
   };

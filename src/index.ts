@@ -1,5 +1,6 @@
 import parseActions from './actionParser/data-action';
 import parseKey from './actionParser/data-key';
+import parseLifecycle from './actionParser/lifecycle';
 import message from './utils/message';
 
 export type ActionArgs = {
@@ -11,7 +12,8 @@ export type ComponentActions = {
 };
 
 export interface ComponentInstance {
-  actions: ComponentActions;
+  actions?: ComponentActions;
+  init?: (t: BindedValues) => void;
 }
 
 export type actionableObject = {
@@ -30,6 +32,7 @@ export type Component = {
 export type ComponentFactory = (component: Component) => ComponentInstance;
 
 export const componentFactory = new Map<string, ComponentFactory>();
+const initialisedComponent = new Map<HTMLElement, boolean>();
 
 const dataComponentAttr = 'data-component';
 
@@ -38,6 +41,11 @@ const createApp = () => {
 
   htmlComponents.forEach((element: HTMLElement) => {
     const name = element.getAttribute(dataComponentAttr) || '';
+    if (initialisedComponent.has(element)) {
+      return;
+    } else {
+      initialisedComponent.set(element, true);
+    }
 
     if (!componentFactory.has(name)) {
       return message.warn(`Component -->"${name}"<-- not found.`);
@@ -50,6 +58,8 @@ const createApp = () => {
     }
 
     const instanceComponent = fnComponent({ el: element });
+
+    parseLifecycle(instanceComponent, element);
 
     if (instanceComponent?.actions) {
       parseActions(element, instanceComponent.actions);

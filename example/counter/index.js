@@ -1,6 +1,9 @@
 import cumbia from '../../dist-lib/cumbia.js';
 
 const counter = ({ el }) => {
+  const init = (values) => {
+    console.log('Hello from counter', values);
+  };
   const actions = {
     plus: ({ count }) => {
       count.el.innerHTML = parseInt(count.value, 10) + 1;
@@ -12,6 +15,7 @@ const counter = ({ el }) => {
 
   return {
     actions,
+    init,
   };
 };
 
@@ -29,4 +33,5 @@ const form = () => {
     actions,
   };
 };
+cumbia([form, counter]);
 cumbia([form, counter]);

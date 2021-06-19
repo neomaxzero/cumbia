@@ -1,4 +1,10 @@
-# Cumbia: A humble Javascript framework
+<p align="center">
+  <a href="https://blog.m4x.io">
+    <img src="test" height="128">
+    <h1 align="center">Cumbia.js</h1>
+  </a>
+</p>
+# Cumbia.js: A humble Javascript framework
 
 Cumbia aims to give you a thin layer between your HTML and JS. An opinionated way of creating components and craft a web page.
 
