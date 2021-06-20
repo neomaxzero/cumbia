@@ -9,7 +9,9 @@
   "scripts": {
     "dev:lib": "node scripts/esbuild.js --dev",
     "dev:example": "parcel example/counter/index.html",
-    "build": "parcel build ./example/counter",
+    "dev:docs": "parcel docs/index.html",
+    "build:example": "parcel build ./example/counter",    
+    "build:docs": "parcel build ./docs/index.html",    
     "build:lib": "node scripts/esbuild.js",
     "check:typescript": "tsc",
     "check:size": "bundlesize"

@@ -1,0 +1,34 @@
+:root {
+  --primary: #ff0f00;
+  --secondary: #3c53f1;
+  --text: #161414;
+  --dark-2: #544d4d;
+  --dark-3: #d6d6d6;
+}
+
+.hide {
+  display: none;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero__text {
+  font-weight: bold;
+  font-size: 48px;
+  color: var(--text);
+}
+
+.hero__description {
+  font-size: 24px;
+  color: var(--dark-2);
+  text-align: left;
+  max-width: 600px;
+}

@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://blog.m4x.io">
-    <img src="https://github.com/neomaxzero/cumbia/blob/master/assets/cumbia.png?raw=true" height="128">    
+    <img src="https://github.com/neomaxzero/cumbia/blob/master/assets/cumbia.png?raw=true" height="128" alt="Cumbia.JS">    
   </a>
 </p>
 
-# Cumbia.js: A humble Javascript framework
+_A humble Javascript framework_
 
 Cumbia aims to give you a thin layer between your HTML and JS. An opinionated way of creating components and craft a web page.
 
@@ -55,4 +55,4 @@ cumbia([counter]);
 
 - Facilitate progressive-enhancement.
 - Be magic enough but easy to extend.
-- Tiny and performant. (< 1Kb)
+- Tiny and performant. (< 5Kb)
