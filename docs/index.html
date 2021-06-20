@@ -9,15 +9,19 @@
     <title>Cumbia.JS: A humble Javascript Framework</title>
   </head>
   <body>
-    <div class="container">
+    <main class="container">
       <h1 class="hide">Cumbia.JS</h1>
       <div class="hero">
         <h2 class="hero__text">A humble JS framework</h2>
-        <p class="hero__description">
-          Cumbia aims to give you a thin layer between your HTML and JS because
-          sometimes you just need a little bit of magic.
-        </p>
-        <button>Get started</button>
+        <div class="hero__center-el">
+          <p class="hero__description">
+            Cumbia aims to give you a thin layer between your HTML and JS
+            because sometimes you just need a little bit of magic.
+          </p>
+        </div>
+        <a href="/getting-started">
+          <button class="btn">Get started</button>
+        </a>
       </div>
       <div class="features">
         <div class="feature">
@@ -27,8 +31,6 @@
             cases your JS should be optional and minimal
           </p>
         </div>
-      </div>
-      <div class="features">
         <div class="feature">
           <h3>Extensible</h3>
           <p>
@@ -36,8 +38,6 @@
             case what is there is not enough
           </p>
         </div>
-      </div>
-      <div class="features">
         <div class="feature">
           <h3>Tiny</h3>
           <p>
@@ -46,11 +46,11 @@
           </p>
         </div>
       </div>
-    </div>
+    </main>
     <footer class="container">
       <span>MIT License</span>
       <span>Crafted while listening to “Nunca me faltes by Antonio Rios”</span>
-      <span> From Maxi </span>
+      <a href="https://blog.m4x.io/about" target="_blank"> From Maxi </span>
     </footer>
     <script src="index.js"></script>
   </body>
