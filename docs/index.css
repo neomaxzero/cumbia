@@ -67,6 +67,10 @@
   color: var(--dark-2);
 }
 
+.logo {
+  height: 48px;
+}
+
 a {
   text-decoration: underline;
 }
@@ -88,13 +92,33 @@ footer a {
   color: var(--dark-3);
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+}
+
+nav li {
+  margin-left: 16px;
+}
+
+main {
+  min-height: 77vh;
+}
+
 @media (min-width: 768px) {
   .features {
     grid-template-columns: repeat(3, 1fr);
     row-gap: 16px;
   }
-}
 
-main {
-  min-height: 80vh;
+  .quote {
+    display: block;
+  }
 }

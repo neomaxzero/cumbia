@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://blog.m4x.io">
+  <a href="https://cumbia.vercel.app/">
     <img src="https://github.com/neomaxzero/cumbia/blob/master/assets/cumbia.png?raw=true" height="128" alt="Cumbia.JS">    
   </a>
 </p>
@@ -7,6 +7,8 @@
 _A humble Javascript framework_
 
 Cumbia aims to give you a thin layer between your HTML and JS. An opinionated way of creating components and craft a web page.
+
+[ > Go to docs page](https://cumbia.vercel.app/)
 
 ## Getting started
 
