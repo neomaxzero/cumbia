@@ -10,8 +10,8 @@
     "dev:lib": "node scripts/esbuild.js --dev",
     "dev:example": "parcel example/counter/index.html",
     "dev:docs": "parcel docs/index.html docs/getting-started/index.html",
-    "build:example": "parcel build ./example/counter",    
-    "build:docs": "parcel build ./docs/index.html ./docs/getting-started/index.html",    
+    "build:example": "parcel build ./example/counter",
+    "build:docs": "parcel build ./docs/index.html ./docs/getting-started/index.html",
     "build:lib": "node scripts/esbuild.js",
     "check:typescript": "tsc",
     "check:size": "bundlesize"
@@ -20,7 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/neomaxzero/cumbia.git"
   },
-  "files": ["cumbia.js"],
+  "files": [
+    "cumbia.js"
+  ],
   "author": "neomaxzero",
   "license": "MIT",
   "bugs": {

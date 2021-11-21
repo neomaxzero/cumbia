@@ -33,5 +33,5 @@ const form = () => {
     actions,
   };
 };
-cumbia([form, counter]);
+
 cumbia([form, counter]);
