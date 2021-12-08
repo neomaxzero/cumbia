@@ -1,4 +1,4 @@
-import { BindedValues, ComponentActions } from '../..';
+import { BindedValues, ComponentActions } from '../../index';
 import message from '../../utils/message';
 import parseValues from './parseValues';
 

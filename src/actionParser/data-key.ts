@@ -1,4 +1,4 @@
-import { ComponentActions } from '..';
+import { ComponentActions } from '../index';
 import callFnWithValues from './utils/caller';
 
 const parseKey = (element: HTMLElement, fnActions: ComponentActions) => {

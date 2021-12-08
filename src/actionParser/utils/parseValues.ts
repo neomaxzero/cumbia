@@ -1,4 +1,4 @@
-import { BindedValues } from '../..';
+import { BindedValues } from '../../index';
 
 const parseValues = (element: HTMLElement): BindedValues => {
   const dataValueAttr = 'data-value';

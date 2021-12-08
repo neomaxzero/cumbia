@@ -69,6 +69,10 @@ const createApp = () => {
 };
 
 const addComponents = (components: Array<ComponentFactory>) => {
+  if (!components.length) {
+    message.error('No components passed');
+  }
+
   components.forEach((component: ComponentFactory) => {
     if (!component.name) {
       return message.error(
@@ -86,5 +90,7 @@ const addComponents = (components: Array<ComponentFactory>) => {
 
   createApp();
 };
+
+message.info('Initializing');
 
 export default addComponents;

@@ -1,4 +1,4 @@
-import { ComponentActions } from '..';
+import { ComponentActions } from '../index';
 import message from '../utils/message';
 import callFnWithValues from './utils/caller';
 

@@ -1,4 +1,4 @@
-import { ComponentInstance } from '..';
+import { ComponentInstance } from '../index';
 import parseValues from './utils/parseValues';
 
 const parseLifecycle = (instance: ComponentInstance, element: HTMLElement) => {

@@ -3,3 +3,4 @@ dist
 .cache
 dist-lib
 cumbia.js
+*.d.ts

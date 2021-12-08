@@ -12,7 +12,7 @@
     "dev:docs": "parcel docs/index.html docs/getting-started/index.html",
     "build:example": "parcel build ./example/counter",
     "build:docs": "parcel build ./docs/index.html ./docs/getting-started/index.html",
-    "build:lib": "node scripts/esbuild.js",
+    "build:lib": "tsc && node scripts/esbuild.js && cp src/index.d.ts cumbia.d.ts",
     "check:typescript": "tsc",
     "check:size": "bundlesize"
   },
@@ -21,7 +21,8 @@
     "url": "git+https://github.com/neomaxzero/cumbia.git"
   },
   "files": [
-    "cumbia.js"
+    "cumbia.js",
+    "cumbia.d.ts"
   ],
   "author": "neomaxzero",
   "license": "MIT",
