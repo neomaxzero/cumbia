@@ -3,7 +3,9 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "declaration": true,
+    "module":"AMD",
     "emitDeclarationOnly": true,
-    "target": "ES6"
+    "target": "ES6",
+    "outFile": "cumbia.js",
   },  
 }

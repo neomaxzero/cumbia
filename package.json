@@ -12,7 +12,7 @@
     "dev:docs": "parcel docs/index.html docs/getting-started/index.html",
     "build:example": "parcel build ./example/counter",
     "build:docs": "parcel build ./docs/index.html ./docs/getting-started/index.html",
-    "build:lib": "tsc && node scripts/esbuild.js && cp src/index.d.ts cumbia.d.ts",
+    "build:lib": "rm cumbia.d.ts && tsc && node scripts/esbuild.js",
     "check:typescript": "tsc",
     "check:size": "bundlesize"
   },
