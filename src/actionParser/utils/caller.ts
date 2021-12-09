@@ -1,4 +1,4 @@
-import { BindedValues, ComponentActions } from '../../index';
+import { BindedValues, ComponentActions } from '../../cumbia';
 import message from '../../utils/message';
 import parseValues from './parseValues';
 

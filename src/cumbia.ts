@@ -1,7 +1,9 @@
-import parseActions from './actionParser/data-action';
-import parseKey from './actionParser/data-key';
-import parseLifecycle from './actionParser/lifecycle';
-import message from './utils/message';
+import { version } from "./_version";
+
+import parseActions from "./actionParser/data-action";
+import parseKey from "./actionParser/data-key";
+import parseLifecycle from "./actionParser/lifecycle";
+import message from "./utils/message";
 
 export type ActionArgs = {
   [key: string]: any | HTMLElement;
@@ -34,13 +36,13 @@ export type ComponentFactory = (component: Component) => ComponentInstance;
 export const componentFactory = new Map<string, ComponentFactory>();
 const initialisedComponent = new Map<HTMLElement, boolean>();
 
-const dataComponentAttr = 'data-component';
+const dataComponentAttr = "data-component";
 
 const createApp = () => {
   const htmlComponents = document.querySelectorAll(`[${dataComponentAttr}]`);
 
   htmlComponents.forEach((element: HTMLElement) => {
-    const name = element.getAttribute(dataComponentAttr) || '';
+    const name = element.getAttribute(dataComponentAttr) || "";
     if (initialisedComponent.has(element)) {
       return;
     } else {
@@ -54,7 +56,7 @@ const createApp = () => {
     const fnComponent = componentFactory.get(name);
 
     if (!fnComponent) {
-      return message.error('Undefined component');
+      return message.error("Undefined component");
     }
 
     const instanceComponent = fnComponent({ el: element });
@@ -70,19 +72,19 @@ const createApp = () => {
 
 const addComponents = (components: Array<ComponentFactory>) => {
   if (!components.length) {
-    message.error('No components passed');
+    message.error("No components passed");
   }
 
   components.forEach((component: ComponentFactory) => {
     if (!component.name) {
       return message.error(
-        'Component name not defined, please give a name to your component',
+        "Component name not defined, please give a name to your component"
       );
     }
 
     if (componentFactory.has(component.name)) {
       message.warn(
-        `Name collision detected. ${component.name} was previously defined`,
+        `Name collision detected. ${component.name} was previously defined`
       );
     }
     componentFactory.set(component.name, component);
@@ -91,6 +93,6 @@ const addComponents = (components: Array<ComponentFactory>) => {
   createApp();
 };
 
-message.info('Initializing');
+message.info(`Initializing ${version}`);
 
 export default addComponents;

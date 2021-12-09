@@ -1,4 +1,4 @@
-import { ComponentInstance } from '../index';
+import { ComponentInstance } from '../cumbia';
 import parseValues from './utils/parseValues';
 
 const parseLifecycle = (instance: ComponentInstance, element: HTMLElement) => {

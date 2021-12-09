@@ -2,7 +2,8 @@
   "name": "cumbia",
   "version": "0.0.4",
   "description": "Cumbia aims to give you a thin layer between your HTML and JS. An opinionated way of creating components and craft a web page.",
-  "main": "cumbia.js",
+  "main": "cumbia",
+  "typings": "cumbia",
   "directories": {
     "example": "example"
   },
@@ -12,7 +13,7 @@
     "dev:docs": "parcel docs/index.html docs/getting-started/index.html",
     "build:example": "parcel build ./example/counter",
     "build:docs": "parcel build ./docs/index.html ./docs/getting-started/index.html",
-    "build:lib": "rm cumbia.d.ts && tsc && node scripts/esbuild.js",
+    "build:lib": "rm -f cumbia.d.ts && tsc && node scripts/esbuild.js",
     "check:typescript": "tsc",
     "check:size": "bundlesize"
   },

@@ -1,12 +1,15 @@
+const writeVersion = require('./writeVersion');
 const yargs = require('yargs');
 
 const argv = yargs.option('dev', {
   type: 'boolean',
 }).argv;
 
+writeVersion();
+
 require('esbuild')
   .build({
-    entryPoints: ['src/index.ts'],
+    entryPoints: ['src/cumbia.ts'],
     bundle: true,
     outfile: argv.dev ? 'dist-lib/cumbia.js' : 'cumbia.js',
     format: 'esm',

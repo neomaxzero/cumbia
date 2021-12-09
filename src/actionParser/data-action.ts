@@ -1,4 +1,4 @@
-import { ComponentActions } from '../index';
+import { ComponentActions } from '../cumbia';
 import message from '../utils/message';
 import callFnWithValues from './utils/caller';
 
