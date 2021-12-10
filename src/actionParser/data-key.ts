@@ -1,4 +1,4 @@
-import { ComponentActions } from '../cumbia';
+import { ComponentActions } from 'types/cumbiaTypes';
 import callFnWithValues from './utils/caller';
 
 const parseKey = (element: HTMLElement, fnActions: ComponentActions) => {

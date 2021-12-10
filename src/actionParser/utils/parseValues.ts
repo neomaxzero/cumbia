@@ -1,4 +1,4 @@
-import { BindedValues } from '../../cumbia';
+import { BindedValues } from "types/cumbiaTypes";
 
 const parseValues = (element: HTMLElement): BindedValues => {
   const dataValueAttr = 'data-value';
