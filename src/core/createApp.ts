@@ -1,14 +1,15 @@
 import componentExecutor from "./componentExecutor";
 import { ComponentFactory } from "types/cumbiaTypes";
+import { CumbiaOptions } from "types/cumbiaTypes";
 
-const initialisedComponent = new Map<HTMLElement, boolean>();
+export const initialisedComponent = new Map<HTMLElement, boolean>();
 export const componentFactory = new Map<string, ComponentFactory>();
 
 const dataComponentAttr = "data-component";
 
 const componentSeparator = ",";
 
-const createApp = (): void => {
+const createApp = (options: CumbiaOptions): void => {
   const htmlComponents = document.querySelectorAll(`[${dataComponentAttr}]`);
 
   htmlComponents.forEach((element: HTMLElement) => {
@@ -26,6 +27,13 @@ const createApp = (): void => {
       componentExecutor(element, componentFactory, uniqueComponent)
     );
   });
+
+  if (options?.globalInitialisers && options.globalInitialisers.length) {
+    options.globalInitialisers.forEach((globalFn) => {
+      const elements = [...initialisedComponent.keys()];
+      globalFn(elements);
+    });
+  }
 };
 
 export default createApp;

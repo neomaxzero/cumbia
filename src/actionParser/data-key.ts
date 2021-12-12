@@ -5,7 +5,6 @@ const parseKey = (element: HTMLElement, fnActions: ComponentActions) => {
   const dataActionAttr = 'data-action-key';
 
   const actions = element.querySelectorAll(`[${dataActionAttr}]`);
-
   actions.forEach((actionElement: HTMLElement) => {
     const actionName =
       actionElement.getAttribute(dataActionAttr) || 'default_action_name';

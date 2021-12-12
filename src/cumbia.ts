@@ -3,8 +3,9 @@ import { version } from "./_version";
 import message from "./utils/message";
 import { ComponentFactory } from "types/cumbiaTypes";
 import createApp, { componentFactory } from "./core/createApp";
+import { CumbiaOptions } from "types/cumbiaTypes";
 
-const addComponents = (components: Array<ComponentFactory>) => {
+const addComponents = (components: Array<ComponentFactory>, options: CumbiaOptions) => {
   if (!components.length) {
     message.error("No components passed");
   }
@@ -24,7 +25,7 @@ const addComponents = (components: Array<ComponentFactory>) => {
     componentFactory.set(component.name, component);
   });
 
-  createApp();
+  createApp(options);
 };
 
 message.info(`Initializing ${version}`);

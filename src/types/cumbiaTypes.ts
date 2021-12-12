@@ -1,3 +1,11 @@
+type Initialisers = (elements: Array<HTMLElement>) => void;
+
+type GlobalInitialisers = Array<Initialisers>
+
+export type CumbiaOptions = {
+  globalInitialisers: GlobalInitialisers
+}
+
 export type ActionArgs = {
   [key: string]: any | HTMLElement;
 };
@@ -23,6 +31,8 @@ export type BindedValues = {
 
 export type Component = {
   el: HTMLElement;
+  on: (topic: string, fn: any) => void;
+  emit: (topic: string, message: any) => void;
 };
 
 export type ComponentFactory = (component: Component) => ComponentInstance;
