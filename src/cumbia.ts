@@ -30,11 +30,10 @@ const addComponents = (
   });
 
   document.addEventListener("DOMContentLoaded", function() { 
+    message.info(`Initializing ${version}`);
     createApp(options);
   });
 };
-
-message.info(`Initializing ${version}`);
 
 export { debug };
 
