@@ -1,3 +1,4 @@
+import msg from "../utils/message";
 const subscriptions = new Map<string, Array<(params: any) => void>>();
 
 export const on = (topic: string, fn: any) => {
@@ -6,7 +7,10 @@ export const on = (topic: string, fn: any) => {
   subscriptions.set(topic, currentSubscriptions);
 };
 
-export const emit = (topic: string, message: any) => {
+type emitterType = <T>(topic: string, message: T) => void;
+
+export const emit: emitterType = (topic, message) => {
+  msg.info({ topic, message });
   const fns = subscriptions.get(topic) || [];
 
   fns.forEach((fn) => {

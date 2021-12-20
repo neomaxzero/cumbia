@@ -10,8 +10,9 @@ const parseActions = (element: HTMLElement, fnActions: ComponentActions) => {
   actions.forEach((actionElement: HTMLElement) => {
     const actionName =
       actionElement.getAttribute(dataActionAttr) || 'default_action_name';
+    const actionType = actionElement.getAttribute('type');
 
-    if (actionName === 'submit') {
+    if (actionName === 'submit' || actionType === 'submit') {
       if (element.tagName !== 'FORM') {
         return message.error('Trying to handle submit handler outside of form');
       }

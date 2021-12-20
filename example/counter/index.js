@@ -1,4 +1,5 @@
-import cumbia from '../../dist-lib/cumbia.js';
+import cumbia from '../../cumbia.js';
+import debug from '../../src/utils/components/debug';
 
 const counter = ({ el }) => {
   const init = (values) => {
@@ -34,4 +35,4 @@ const form = () => {
   };
 };
 
-cumbia([form, counter]);
+cumbia([form, counter], { globalInitialisers: [debug]});

@@ -84,12 +84,28 @@ To let Cumbia know what to do with the HTML element we can pass an object with s
 
   - By default the event listener attached is based on `click` events.
   - For `input` elements the event listener attached is `change`.
-  - For `form` the name of the data-action MUST BE `submit` and it'll attach the event listener to the HTML form.
+  - For `form` the name of the data-action **MUST BE `submit`** and it'll attach the event listener to the HTML form.
   - `data-action-key` will attach `keyup` event listener to the action elements.
 
 When calling the action defined in your JS component, cumbia will give you the list of all the values parsed, including the elements.
 
 
+### Global Initialisers
 
+In case you need to interact with all data-components after initialising the process you can provide an argument to cumbia. This might be useful to log or check something in every component.
 
+#### Debugger
 
+```javascript
+import cumbia, { debug } from 'cumbia';
+
+// Define your component
+const component = ({ el }) => {
+
+};
+
+// Call the power of the Cumbia
+cumbia([component], {
+  globalInitalisers: [debug]
+});
+```

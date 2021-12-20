@@ -41,6 +41,22 @@
       </p>
     </form>
 
+    <h2>Todo</h2>
+    <form data-component="todo">
+      <label for="name"></label>
+      <input data-value="name" name="name" placeholder="Insert name" value="Wow"></input>
+      <button data-action="add" type="submit">Submit</button>      
+    </form>
+    <ul data-component="todoList">
+
+    </ul>
+    
+    <noscript>
+      <li data-template="todo-item">
+        {{ value }}
+      </li>
+  </noscript>
+
     <script src="index.js"></script>
   </body>
 </html>

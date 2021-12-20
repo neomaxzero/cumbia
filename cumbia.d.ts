@@ -1,15 +1,23 @@
-declare module "_version" {
-    export const version = "0.0.5";
+declare module "example/counter/components/todo/messages" {
+    export enum MESSAGES {
+        ADD_TODO = "ADD_TODO"
+    }
+    export type MESSAGES_TYPE = {
+        [MESSAGES.ADD_TODO]: string;
+    };
 }
-declare module "utils/message" {
+declare module "src/_version" {
+    export const version = "0.0.6";
+}
+declare module "src/utils/message" {
     const _default: {
-        error: (msg: string) => void;
-        warn: (msg: string) => void;
-        info: (msg: string) => void;
+        error: (msg: any) => void;
+        warn: (msg: any) => void;
+        info: (msg: any) => void;
     };
     export default _default;
 }
-declare module "types/cumbiaTypes" {
+declare module "src/types/cumbiaTypes" {
     type Initialisers = (elements: Array<HTMLElement>) => void;
     type GlobalInitialisers = Array<Initialisers>;
     export type CumbiaOptions = {
@@ -40,59 +48,66 @@ declare module "types/cumbiaTypes" {
     };
     export type ComponentFactory = (component: Component) => ComponentInstance;
 }
-declare module "actionParser/utils/parseValues" {
-    import { BindedValues } from "types/cumbiaTypes";
+declare module "src/actionParser/utils/parseValues" {
+    import { BindedValues } from "src/types/cumbiaTypes";
     const parseValues: (element: HTMLElement) => BindedValues;
     export default parseValues;
 }
-declare module "actionParser/utils/caller" {
-    import { ComponentActions } from "types/cumbiaTypes";
+declare module "src/actionParser/utils/caller" {
+    import { ComponentActions } from "src/types/cumbiaTypes";
     export type CallerValues = {
         prevent: boolean;
     };
     const callFnWithValues: (element: HTMLElement, fnActions: ComponentActions, actionName: string, { prevent }: CallerValues) => (e: Event) => void;
     export default callFnWithValues;
 }
-declare module "actionParser/data-action" {
-    import { ComponentActions } from "types/cumbiaTypes";
+declare module "src/actionParser/data-action" {
+    import { ComponentActions } from "src/types/cumbiaTypes";
     const parseActions: (element: HTMLElement, fnActions: ComponentActions) => void;
     export default parseActions;
 }
-declare module "actionParser/data-key" {
-    import { ComponentActions } from "types/cumbiaTypes";
+declare module "src/actionParser/data-key" {
+    import { ComponentActions } from "src/types/cumbiaTypes";
     const parseKey: (element: HTMLElement, fnActions: ComponentActions) => void;
     export default parseKey;
 }
-declare module "actionParser/lifecycle" {
-    import { ComponentInstance } from "types/cumbiaTypes";
+declare module "src/actionParser/lifecycle" {
+    import { ComponentInstance } from "src/types/cumbiaTypes";
     const parseLifecycle: (instance: ComponentInstance, element: HTMLElement) => void;
     export default parseLifecycle;
 }
-declare module "core/pubsub" {
+declare module "src/core/pubsub" {
     export const on: (topic: string, fn: any) => void;
-    export const emit: (topic: string, message: any) => void;
+    type emitterType = <T>(topic: string, message: T) => void;
+    export const emit: emitterType;
     const _default_1: {
         on: (topic: string, fn: any) => void;
-        emit: (topic: string, message: any) => void;
+        emit: emitterType;
     };
     export default _default_1;
 }
-declare module "core/componentExecutor" {
-    import { ComponentFactory } from "types/cumbiaTypes";
+declare module "src/core/componentExecutor" {
+    import { ComponentFactory } from "src/types/cumbiaTypes";
     const componentExecutor: (element: HTMLElement, componentFactory: Map<string, ComponentFactory>, name: string) => void;
     export default componentExecutor;
 }
-declare module "core/createApp" {
-    import { ComponentFactory } from "types/cumbiaTypes";
-    import { CumbiaOptions } from "types/cumbiaTypes";
+declare module "src/core/createApp" {
+    import { ComponentFactory } from "src/types/cumbiaTypes";
+    import { CumbiaOptions } from "src/types/cumbiaTypes";
     export const initialisedComponent: Map<HTMLElement, boolean>;
     export const componentFactory: Map<string, ComponentFactory>;
     const createApp: (options: CumbiaOptions) => void;
     export default createApp;
 }
-declare module "cumbia" {
-    import { ComponentFactory } from "types/cumbiaTypes";
-    import { CumbiaOptions } from "types/cumbiaTypes";
+declare module "src/utils/components/debug" {
+    const debug: (components: Array<HTMLElement>) => void;
+    export default debug;
+}
+declare module "src/cumbia" {
+    import { ComponentFactory } from "src/types/cumbiaTypes";
+    import { CumbiaOptions } from "src/types/cumbiaTypes";
+    import debug from "src/utils/components/debug";
     const addComponents: (components: Array<ComponentFactory>, options: CumbiaOptions) => void;
+    export { debug };
     export default addComponents;
 }

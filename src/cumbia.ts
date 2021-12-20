@@ -4,8 +4,12 @@ import message from "./utils/message";
 import { ComponentFactory } from "types/cumbiaTypes";
 import createApp, { componentFactory } from "./core/createApp";
 import { CumbiaOptions } from "types/cumbiaTypes";
+import debug from "./utils/components/debug";
 
-const addComponents = (components: Array<ComponentFactory>, options: CumbiaOptions) => {
+const addComponents = (
+  components: Array<ComponentFactory>,
+  options: CumbiaOptions
+) => {
   if (!components.length) {
     message.error("No components passed");
   }
@@ -25,9 +29,15 @@ const addComponents = (components: Array<ComponentFactory>, options: CumbiaOptio
     componentFactory.set(component.name, component);
   });
 
-  createApp(options);
+  document.addEventListener("DOMContentLoaded", function() { 
+    createApp(options);
+  });
 };
 
 message.info(`Initializing ${version}`);
+
+export { debug };
+
+
 
 export default addComponents;
