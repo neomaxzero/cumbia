@@ -16,7 +16,7 @@ const counter = ({ el }) => {
 
   return {
     actions,
-    init,
+    init
   };
 };
 
@@ -35,4 +35,4 @@ const form = () => {
   };
 };
 
-cumbia([form, counter], { globalInitialisers: [debug]});
+cumbia({form, counter}, { globalInitialisers: [debug]});

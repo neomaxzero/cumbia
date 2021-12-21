@@ -7,14 +7,16 @@ import { CumbiaOptions } from "types/cumbiaTypes";
 import debug from "./utils/components/debug";
 
 const addComponents = (
-  components: Array<ComponentFactory>,
+  components: Record<string, ComponentFactory>,
   options: CumbiaOptions
 ) => {
-  if (!components.length) {
-    message.error("No components passed");
+  if (!Object.keys(components).length) {
+    return message.error("No components passed");
   }
 
-  components.forEach((component: ComponentFactory) => {
+  Object.keys(components).forEach((componentName:string) => {
+    const component: ComponentFactory = components[componentName];
+
     if (!component.name) {
       return message.error(
         "Component name not defined, please give a name to your component"

@@ -7,7 +7,7 @@ declare module "example/counter/components/todo/messages" {
     };
 }
 declare module "src/_version" {
-    export const version = "0.0.7";
+    export const version = "0.0.8";
 }
 declare module "src/utils/message" {
     const _default: {
@@ -33,6 +33,7 @@ declare module "src/types/cumbiaTypes" {
     export interface ComponentInstance {
         actions?: ComponentActions;
         init?: ComponentInitializer;
+        name: string;
     }
     export type actionableObject = {
         el: HTMLElement;
@@ -107,7 +108,7 @@ declare module "src/cumbia" {
     import { ComponentFactory } from "src/types/cumbiaTypes";
     import { CumbiaOptions } from "src/types/cumbiaTypes";
     import debug from "src/utils/components/debug";
-    const addComponents: (components: Array<ComponentFactory>, options: CumbiaOptions) => void;
+    const addComponents: (components: Record<string, ComponentFactory>, options: CumbiaOptions) => void;
     export { debug };
     export default addComponents;
 }

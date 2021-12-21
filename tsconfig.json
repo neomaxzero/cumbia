@@ -6,6 +6,10 @@
     "emitDeclarationOnly": true,
     "module": "ESNext",
     "target": "ES6",
-    "outFile": "cumbia.js"
+    "outFile": "cumbia.js",
+    "lib": [
+      "es2017",
+      "dom"
+  ]
   }
 }

@@ -18,6 +18,7 @@ export type ComponentInitializer = (t: BindedValues) => void;
 export interface ComponentInstance {
   actions?: ComponentActions;
   init?: ComponentInitializer;
+  name: string;
 }
 
 export type actionableObject = {
