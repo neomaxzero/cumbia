@@ -7,7 +7,7 @@ declare module "example/counter/components/todo/messages" {
     };
 }
 declare module "src/_version" {
-    export const version = "0.0.8";
+    export const version = "0.0.9";
 }
 declare module "src/utils/message" {
     const _default: {

@@ -17,18 +17,18 @@ const addComponents = (
   Object.keys(components).forEach((componentName:string) => {
     const component: ComponentFactory = components[componentName];
 
-    if (!component.name) {
+    if (!componentName) {
       return message.error(
         "Component name not defined, please give a name to your component"
       );
     }
 
-    if (componentFactory.has(component.name)) {
+    if (componentFactory.has(componentName)) {
       message.warn(
-        `Name collision detected. ${component.name} was previously defined`
+        `Name collision detected. ${componentName} was previously defined`
       );
     }
-    componentFactory.set(component.name, component);
+    componentFactory.set(componentName, component);
   });
 
   document.addEventListener("DOMContentLoaded", function() { 
