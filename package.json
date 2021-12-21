@@ -1,6 +1,6 @@
 {
   "name": "cumbia",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Cumbia aims to give you a thin layer between your HTML and JS. An opinionated way of creating components and craft a web page.",
   "main": "cumbia",
   "typings": "cumbia",
