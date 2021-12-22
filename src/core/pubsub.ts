@@ -10,7 +10,7 @@ export const on = (topic: string, fn: any) => {
 type emitterType = <T>(topic: string, message: T) => void;
 
 export const emit: emitterType = (topic, message) => {
-  msg.info({ topic, message });
+  // msg.info({ topic, message });
   const fns = subscriptions.get(topic) || [];
 
   fns.forEach((fn) => {
