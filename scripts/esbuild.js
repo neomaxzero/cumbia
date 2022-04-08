@@ -11,7 +11,7 @@ require('esbuild')
   .build({
     entryPoints: ['src/cumbia.ts'],
     bundle: true,
-    outfile: argv.dev ? 'dist-lib/cumbia.js' : 'cumbia.js',
+    outfile: 'cumbia.js',
     format: 'esm',
     minify: !argv.dev,
     sourcemap: argv.dev,

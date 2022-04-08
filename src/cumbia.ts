@@ -8,7 +8,7 @@ import debug from "./utils/components/debug";
 
 const addComponents = (
   components: Record<string, ComponentFactory>,
-  options: CumbiaOptions
+  options?: CumbiaOptions
 ) => {
   if (!Object.keys(components).length) {
     return message.error("No components passed");
@@ -33,6 +33,7 @@ const addComponents = (
 
   document.addEventListener("DOMContentLoaded", function() { 
     message.info(`Initializing ${version}`);
+
     createApp(options);
   });
 };

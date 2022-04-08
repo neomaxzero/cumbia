@@ -14,7 +14,7 @@ const parseActions = (element: HTMLElement, fnActions: ComponentActions) => {
 
     if (actionName === 'submit' || actionType === 'submit') {
       if (element.tagName !== 'FORM') {
-        return message.error('Trying to handle submit handler outside of form');
+        return message.error(`Trying to handle submit handler in an element different than a FORM: ${element}` );
       }
 
       element.addEventListener(

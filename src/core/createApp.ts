@@ -9,7 +9,7 @@ const dataComponentAttr = "data-component";
 
 const componentSeparator = ",";
 
-const createApp = (options: CumbiaOptions): void => {
+const createApp = (options?: CumbiaOptions): void => {
   const htmlComponents = document.querySelectorAll(`[${dataComponentAttr}]`);
 
   htmlComponents.forEach((element: HTMLElement) => {
