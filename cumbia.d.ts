@@ -7,7 +7,7 @@ declare module "example/counter/components/todo/messages" {
     };
 }
 declare module "src/_version" {
-    export const version = "0.0.10";
+    export const version = "0.0.11";
 }
 declare module "src/utils/message" {
     const _default: {
@@ -97,7 +97,7 @@ declare module "src/core/createApp" {
     import { CumbiaOptions } from "src/types/cumbiaTypes";
     export const initialisedComponent: Map<HTMLElement, boolean>;
     export const componentFactory: Map<string, ComponentFactory>;
-    const createApp: (options: CumbiaOptions) => void;
+    const createApp: (options?: CumbiaOptions | undefined) => void;
     export default createApp;
 }
 declare module "src/utils/components/debug" {
@@ -105,10 +105,13 @@ declare module "src/utils/components/debug" {
     export default debug;
 }
 declare module "src/cumbia" {
-    import { ComponentFactory } from "src/types/cumbiaTypes";
-    import { CumbiaOptions } from "src/types/cumbiaTypes";
+    import { ComponentFactory, CumbiaOptions } from "src/types/cumbiaTypes";
     import debug from "src/utils/components/debug";
-    const addComponents: (components: Record<string, ComponentFactory>, options: CumbiaOptions) => void;
+    const addComponents: (components: Record<string, ComponentFactory>, options?: CumbiaOptions | undefined) => void;
     export { debug };
     export default addComponents;
 }
+declare module "src/utils/tests/dispatch" {
+    export const dispatchContentLoaded: () => boolean;
+}
+declare module "src/__tests__/cumbia.spec" { }

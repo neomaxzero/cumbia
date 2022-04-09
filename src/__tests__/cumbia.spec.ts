@@ -1,20 +1,98 @@
-import { Component, ComponentFactory } from 'src/types/cumbiaTypes';
-import cumbia from '../cumbia';
+import { ComponentFactory } from "types/cumbiaTypes";
+import { dispatchContentLoaded } from "../utils/tests/dispatch";
 
-
-
-const counterComponent: ComponentFactory = () => {
+const counterComponent =
+  (fnInit: any, fnActions: any): ComponentFactory =>
+  () => {
     return {
-        name: 'counter',
-        init: jest.fn() as any,
-        actions: jest.fn() as any
-    }
-}
+      name: "counter",
+      init: fnInit as any,
+      actions: fnActions as any,
+    };
+  };
 
-describe('cumbia 🎶 ', () => {
+const html = () => {
+  document.body.innerHTML = `
+        <div data-component="counter">
+        </div>    
+    `;
+};
 
-    test('Should initialise component if name is correct', () => {
-        cumbia({ counter: counterComponent })
-    })
+beforeEach(() => {
+  jest.clearAllMocks();
+  jest.resetModules();
+});
 
-})
+describe("cumbia 🎶 ", () => {
+  test("Should not initialise if DOM is not ready", () => {
+    const cumbia = require("../cumbia").default;
+
+    const init = jest.fn();
+    const actions = jest.fn();
+    html();
+    cumbia({ counter: counterComponent(init, actions) });
+
+    expect(init).not.toHaveBeenCalled();
+  });
+
+  describe("Should Initialise", () => {
+    test("component after DOMContentLoaded event", () => {
+      const cumbia = require("../cumbia").default;
+      const init = jest.fn();
+      const actions = jest.fn();
+      html();
+      cumbia({ counter: counterComponent(init, actions) });
+
+      dispatchContentLoaded();
+
+      expect(init).toHaveBeenCalled();
+    });
+  });
+
+  describe("Messages", () => {
+    test("If no components are passed", () => {
+      const errorSpy = jest.spyOn(console, "error");
+
+      const cumbia = require("../cumbia").default;
+
+      html();
+      cumbia({});
+
+      expect(errorSpy).toHaveBeenCalled();
+    });
+
+    test("if component is not found: HTML/Config mismatch", () => {
+      const errorSpy = jest.spyOn(console, "warn");
+
+      const cumbia = require("../cumbia").default;
+      const init = jest.fn();
+      const actions = jest.fn();
+      html();
+      cumbia({ noCounter: counterComponent(init, actions) });
+
+      dispatchContentLoaded();
+
+      expect(errorSpy).toHaveBeenCalled();
+    });
+    test("if same component name is declared multiple times", () => {
+      const errorSpy = jest.spyOn(console, "warn");
+
+      const cumbia = require("../cumbia").default;
+      const init = jest.fn();
+      const actions = jest.fn();
+      html();
+
+      cumbia({
+        counter: counterComponent(init, actions),
+      });
+
+      cumbia({
+        counter: counterComponent(init, actions),
+      });
+
+      dispatchContentLoaded();
+
+      expect(errorSpy).toHaveBeenCalled();
+    });
+  });
+});

@@ -4,12 +4,13 @@
     "strictNullChecks": true,
     "declaration": true,
     "emitDeclarationOnly": true,
+    "esModuleInterop": true,
     "module": "ESNext",
+    "moduleResolution": "node",
     "target": "ES6",
     "outFile": "cumbia.js",
-    "lib": [
-      "es2017",
-      "dom"
-  ]
-  }
+    "lib": ["es2017", "dom"],
+    "baseUrl": "src"
+  },
+  "exclude": ["cumbia.d.ts"]
 }

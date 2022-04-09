@@ -10,11 +10,8 @@
   "scripts": {
     "test": "jest",
     "dev:lib": "node scripts/esbuild.js --dev",
-    "dev:example": "parcel example/counter/index.html",
     "dev:docs": "docsify serve docs",
-    "build:example": "parcel build ./example/counter",
-    "build:docs": "parcel build ./docs/index.html ./docs/getting-started/index.html",
-    "build:lib": "rm -f cumbia.d.ts && tsc && node scripts/esbuild.js",
+    "build:lib": "rm -f cumbia.d.ts && tsc && npm run test && node scripts/esbuild.js",
     "check:typescript": "tsc",
     "check:size": "bundlesize"
   },
@@ -37,7 +34,6 @@
     "bundlesize": "^0.18.1",
     "esbuild": "^0.12.8",
     "jest": "^27.5.1",
-    "parcel-bundler": "^1.12.5",
     "ts-jest": "^27.1.4",
     "typescript": "^4.3.2",
     "yargs": "^17.0.1"
